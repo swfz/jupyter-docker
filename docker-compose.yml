@@ -1,0 +1,14 @@
+version: '3'
+services:
+  jupyterlab:
+    build: .
+    ports:
+      - '8888:8888'
+    volumes:
+      # - "./notebooks:/home/student/notebooks"
+      - "./work:/home/jovyan/notebooks"
+    privileged: true
+    environment:
+      GRANT_SUDO: "yes"
+    command: start.sh jupyter lab --NotebookApp.token=''
+
