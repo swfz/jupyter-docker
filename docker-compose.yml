@@ -8,6 +8,6 @@ services:
       - "./notebooks:/home/jovyan/notebooks:z"
     environment:
       GRANT_SUDO: "yes"
-    command: start.sh jupyter lab --NotebookApp.token='' --NotebookApp.iopub_data_rate_limit=100000000
+    command: start.sh jupyter lab --NotebookApp.token='' --NotebookApp.iopub_data_rate_limit=100000000 --NotebookApp.contents_manager_class='jupytext.TextFileContentsManager'
 
 
