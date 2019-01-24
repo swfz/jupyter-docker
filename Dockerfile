@@ -6,7 +6,7 @@ USER root
 RUN pip install --upgrade google-api-python-client
 
 # vimキーバインドのプラグインインストール
-RUN jupyter labextension install jupyterlab_vim
+RUN jupyter labextension install jupyterlab_vim ipython-sql
 
 # 黒背景設定を追加
 RUN mkdir -p /home/jovyan/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
