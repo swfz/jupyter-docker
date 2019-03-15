@@ -50,6 +50,7 @@ count = 0
 for _ in range(epoch):
     for x, y in zip(train_x, train_y):
         if f(x) != y:
+            # 重みベクトルを分類があってない場合に少しづつづらすことで決定境界を近づけていく
             w = w + y * x
             # ログの出力
             count += 1

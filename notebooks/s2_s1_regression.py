@@ -99,9 +99,12 @@ theta = np.random.rand(3)
 
 # 学習データの行列を作る
 def to_matrix(x):
+    print(x.shape[0])
     return np.vstack([np.ones(x.shape[0]), x, x ** 2]).T
 
 X = to_matrix(train_z)
+
+
 
 # 予測関数
 
@@ -172,6 +175,14 @@ errors.append(MSE(X, train_y))
 while diff > 1e-2:
     p = np.random.permutation(X.shape[0])
     # 学習データをランダムに取り出して確率的勾配降下法でパラメータ更新
+#     print('X-----------')
+#     print(X)
+#     print('X-----------')
+#     print('p-----------')
+#     print(p)
+#     print('p-----------')
+#     print('train_y',train_y)
+#     print('train_y[p]',train_y[p])
     for x, y in zip(X[p,:], train_y[p]):
         theta = theta - ETA * (f(x) - y) * x
     # 前回の誤差との差分を計算
@@ -183,3 +194,6 @@ x = np.linspace(-3, 3, 100)
 plt.plot(train_z, train_y, 'o')
 plt.plot(x, f(to_matrix(x)))
 plt.show()
+# -
+
+
